@@ -19,8 +19,8 @@ From [Releases](../../releases):
 
 | System | File | Start |
 |---|---|---|
-| Windows 10/11 (x64) | `UNS-as-Code Explorer-0.1.3-win.zip` | unzip, run `UNS-as-Code Explorer.exe` (not signed yet: Windows SmartScreen asks once) |
-| Linux (x64) | `UNS-as-Code Explorer-0.1.3.AppImage` | `chmod +x` and run (needs FUSE 2) |
+| Windows 10/11 (x64) | `UNS-as-Code.Explorer-0.1.3-win.zip` | unzip, run `UNS-as-Code Explorer.exe` (not signed yet: Windows SmartScreen asks once) |
+| Linux (x64) | `UNS-as-Code.Explorer-0.1.3.AppImage` | `chmod +x` and run (needs FUSE 2) |
 
 Check the download against `SHA256SUMS` in the same release.
 
