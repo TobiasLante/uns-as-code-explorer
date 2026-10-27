@@ -2,7 +2,7 @@
 
 # UNS-as-Code Explorer
 
-> **Beta 0.1.3 — not a final version.** Things will change, some views are rough, and there will be bugs. Feedback is welcome (Issues).
+> **Beta 0.1.4 — not a final version.** Things will change, some views are rough, and there will be bugs. Feedback is welcome (Issues).
 
 A read-only desktop explorer for a Unified Namespace — **NATS, MQTT or Kafka** — as simple as MQTT Explorer.
 
@@ -15,14 +15,17 @@ No telemetry, no phone-home.
 
 ## Download
 
-From [Releases](../../releases):
+The newest version, always:
 
-| System | File | Start |
-|---|---|---|
-| Windows 10/11 (x64) | `UNS-as-Code.Explorer-0.1.3-win.zip` | unzip, run `UNS-as-Code Explorer.exe` (not signed yet: Windows SmartScreen asks once) |
-| Linux (x64) | `UNS-as-Code.Explorer-0.1.3.AppImage` | `chmod +x` and run (needs FUSE 2) |
+- **Windows 10/11 (x64):** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip)
+  unzip, run `UNS-as-Code Explorer.exe` (not signed yet: Windows SmartScreen asks once)
+- **Linux (x64):** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x86_64.AppImage](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x86_64.AppImage)
+  `chmod +x` and run (needs FUSE 2)
 
-Check the download against `SHA256SUMS` in the same release.
+Older versions and `SHA256SUMS`: [Releases](../../releases).
+
+On the first start the Explorer opens the public UNS-as-Code model on GitHub (`osf-schemas`, branch `next`, plant `werk1`), so you can look
+around without a broker. Connect a broker when you want live values.
 
 ## Connect
 

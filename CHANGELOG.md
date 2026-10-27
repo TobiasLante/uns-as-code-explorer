@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 — beta (2026-10-27)
+- The first start opens the public UNS-as-Code model on GitHub (osf-schemas, branch next, werk1): browse it without a broker.
+- The Windows program carries the Explorer's logo (it showed the Electron logo before).
+- One download link per system that always gives the newest version.
+
 ## 0.1.3 — beta (2026-10-27)
 - New logo in the app (the topic tree with its circles), same as the program icon.
 - First public release (Windows zip, Linux AppImage).
