@@ -2,7 +2,7 @@
 
 # UNS-as-Code Explorer
 
-> **Beta 0.1.4 — not a final version.** Things will change, some views are rough, and there will be bugs. Feedback is welcome (Issues).
+> **Beta 0.2.0 — not a final version.** Things will change, some views are rough, and there will be bugs. Feedback is welcome (Issues).
 
 A read-only desktop explorer for a Unified Namespace — **NATS, MQTT or Kafka** — as simple as MQTT Explorer.
 
@@ -11,16 +11,20 @@ A read-only desktop explorer for a Unified Namespace — **NATS, MQTT or Kafka**
   on an attribute and where their band comes from, *follow a work order*, *follow a decision* and the gaps between model and broker.
 
 The Explorer **only reads**: it never publishes to a broker, never commits Kafka offsets and never writes to the model git.
-No telemetry, no phone-home.
+No telemetry. The only call besides your broker and model git: at start it asks GitHub whether a newer version exists (you can switch that off).
 
 ## Download
 
 The newest version, always:
 
-- **Windows 10/11 (x64):** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip)
-  unzip, run `UNS-as-Code Explorer.exe` (not signed yet: Windows SmartScreen asks once)
+- **Windows 10/11 (x64), setup:** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64-setup.exe)
+  installs for your user only — no admin rights; start menu and desktop entry, uninstall in the Windows settings. Not signed: SmartScreen asks once — "More info" → "Run anyway"
+- **Windows 10/11 (x64), portable zip:** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip)
+  unzip anywhere (no admin rights needed), run `UNS-as-Code Explorer.exe`. The program is not signed: Windows SmartScreen asks once — "More info" → "Run anyway"
 - **Linux (x64):** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x86_64.AppImage](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x86_64.AppImage)
   `chmod +x` and run (needs FUSE 2)
+- **Linux (x64), no FUSE and no root needed:** [https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x64.tar.gz](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x64.tar.gz)
+  unpack, run `./uns-as-code-explorer`; `./install-desktop-entry.sh` adds it to your app menu
 
 Older versions and `SHA256SUMS`: [Releases](../../releases).
 
@@ -31,7 +35,7 @@ around without a broker. Connect a broker when you want live values.
 
 - **NATS:** `nats://host:4222` or `tls://host:4222`; user + password, a `.creds` file (JWT) and/or a CA file.
 - **MQTT:** `mqtt://host:1883`, `mqtts://host:8883`.
-- **Kafka:** `kafka://host:9092[,host2:9092]`, `kafka+ssl://…`.
+- **Kafka:** `kafka://host:9092[,host2:9092]`, `kafka+ssl://…`; values in Avro: also give the schema registry (`http://registry:8081`).
 - With a CA file TLS is required — never a silent fall back to plain text. Passwords and tokens are kept in the system keychain, never in plain text.
 
 ## Model (optional)
@@ -41,8 +45,8 @@ A UNS-as-Code model git: a local clone or its URL (the Explorer clones it into i
 
 ## Known limitations (beta)
 
-- Payloads: JSON only (Avro and Sparkplug B are planned).
-- Windows build is a zip, not an installer, and not code-signed yet.
+- Payloads: JSON and Avro (Kafka with a schema registry); Sparkplug B is not supported.
+- The Windows program is a zip (no installer yet) and not code-signed.
 - Large brokers: the topic tree keeps a bounded history per subject; very large retained sets take a while to load.
 
 ## Licence
