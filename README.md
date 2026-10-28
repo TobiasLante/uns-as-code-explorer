@@ -28,8 +28,13 @@ The newest version, always:
 
 Older versions and `SHA256SUMS`: [Releases](../../releases).
 
-On the first start the Explorer opens the public UNS-as-Code model on GitHub (`osf-schemas`, branch `next`, plant `werk1`), so you can look
-around without a broker. Connect a broker when you want live values.
+## The model it shows: osf-schemas, branch `next`
+
+Out of the box (0.2.0) the Explorer shows the public UNS-as-Code model repository **osf-schemas**, branch **`next`**, plant `werk1` —
+no broker, no login needed: **[https://github.com/TobiasLante/osf-schemas/tree/next](https://github.com/TobiasLante/osf-schemas/tree/next)**
+
+On the first start it opens that model, so you can look around right away: the plant, its machines, profiles, units, rules and ISA-95 objects.
+Connect a broker when you want live values; pick another model git (a local clone or its URL) when you have your own.
 
 ## Connect
 
