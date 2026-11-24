@@ -8,10 +8,10 @@ The Explorer is a free desktop app (Windows, Linux) that connects to the data hu
 MQTT or Kafka — and shows every value live, together with what it means: which machine it belongs to, which order, which limit
 applies. It only reads; it never changes anything in the plant.
 
-New in 0.2.21: **Compare** — the same question to Claude twice, once on the raw exports of the systems as most plants have them
-today, once with the UNS-as-Code plant context. You see side by side what the context changes.
+**Compare** — the same question to Claude twice: once with the data as Anthropic's Claude for Manufacturing reads it today, once
+with the UNS-as-Code context layer. You see side by side what the context changes, and a fixed rule checks both answers.
 
-> Beta 0.2.21 — free and open source (Apache-2.0). Feedback welcome in [Issues](../../issues).
+> Beta 0.2.23 (release candidate) — free and open source (Apache-2.0). Feedback welcome in [Issues](../../issues).
 
 ![Compare: the same question with and without the plant context](docs/images/07-compare-live.png)
 
@@ -53,12 +53,12 @@ today, once with the UNS-as-Code plant context. You see side by side what the co
 
 | System | File |
 |---|---|
-| Windows 10/11 | [Setup](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64-setup.exe) (no admin rights) · [Zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-win-x64.zip) |
-| Linux x64 | [AppImage](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x86_64.AppImage) · [tar.gz](https://github.com/TobiasLante/uns-as-code-explorer/releases/latest/download/UNS-as-Code-Explorer-linux-x64.tar.gz) (no FUSE, no root) |
+| Windows 10/11, demo | [UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc1/UNS-as-Code-Explorer-win-x64.zip) — with the 2-hour demo access to our simulated plant (e-mail optional); no installation, no admin rights |
+| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc1/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user, for your own broker; no demo access |
+| Linux | follows with the next version |
 
-The links always give the newest published version. Older versions and checksums: [Releases](../../releases).
-
-> **Note:** 0.2.21 (with Compare and the demo activation) is being published in the next days; until then the links above give 0.2.0.
+This is a release candidate (0.2.23-rc1): Windows only. Checksums (`.sha256` next to each file) and older versions:
+[Releases](../../releases).
 
 ---
 
@@ -66,10 +66,18 @@ The links always give the newest published version. Older versions and checksums
 
 ### 1. Install
 
-**Windows:** run the *Setup*. It installs for your user only — no administrator rights needed. The program is not signed yet, so
-Windows SmartScreen asks once: click **More info → Run anyway**. Or unpack the *Zip* and start `UNS-as-Code Explorer.exe`.
+**Windows:** unpack the *Zip* and start `UNS-as-Code Explorer.exe`. Nothing is installed, no administrator rights are needed.
+The program is not signed yet, so Windows asks up to three times:
 
-**Linux:** make the AppImage executable (`chmod +x`) and start it, or unpack the tar.gz and start `uns-as-code-explorer`.
+1. **In the browser:** Edge may say the file "is not commonly downloaded". Open the downloads (**…** next to the file) → **Keep**
+   (German: **Behalten**) → **Keep anyway** (**Trotzdem behalten**).
+2. **The zip only, before unpacking:** right-click the zip → **Properties** (**Eigenschaften**) → at the bottom, under **Security**
+   (**Sicherheit**: "This file came from another computer …") tick **Unblock** (**Zulassen**) → **OK**. Unpacked without this, every
+   file keeps the internet mark and Windows asks again.
+3. **At the first start:** "Windows protected your PC" (**Der Computer wurde durch Windows geschützt**) → **More info** (**Weitere
+   Informationen**) → **Run anyway** (**Trotzdem ausführen**). Once.
+
+**Linux:** follows with the next version.
 
 ### 2. First start: the demo plant
 
@@ -112,7 +120,7 @@ Open **MCP / Claude**. Three tabs:
 |---|---|
 | **Compare** | The same question to Claude twice — without and with the plant context. |
 | **Readiness** | Checks this computer before a run, and offers a fix for whatever is missing. |
-| **Set-up** | Connects Claude Desktop to the Explorer, and switches the plant context on or off. |
+| **Set-up** | Connects Claude Desktop to the Explorer. |
 
 **First: Readiness.** Each line is green when that part is ready. A red line has its fix next to it; the buttons below install or
 sign in to what is missing. While something is missing, the tab shows a red dot.
@@ -132,16 +140,18 @@ sign in to what is missing. While something is missing, the tab shows a red dot.
 1. Pick a question from the list — six ready questions, taken from the data of the plant you are connected to (see
    [below](#six-ready-questions)) — or type your own.
 2. Click **Run both**.
-3. Two Claude sessions start at the same moment with the same question. On the **left**, Claude has only the systems' raw exports, as in
-   most plants today. On the **right**, Claude has the same exports **plus** the UNS-as-Code plant context.
-4. Watch both answer live: the tools each one uses, then six numbers — time, tool calls, plant tools, sources named, ISA-95 relations,
-   and what it says it cannot know.
-5. **Copy** at the top of each side copies its answer. **Present ⛶** shows the stage full screen, for a meeting or a screen share.
+3. The preparation shows step by step what each side gets. Then two Claude sessions start at the same moment with the same question.
+   On the **left**, Claude gets the data as Claude for Manufacturing reads it today (see [below](#both-sides-use-claude-for-manufacturing)).
+   On the **right**, Claude also has the UNS-as-Code context layer.
+4. Watch both answer live, with the tools each one uses.
+5. **Present ⛶** shows the stage full screen, for a meeting or a screen share (Esc ends it).
 
 ![Compare: both answers side by side](docs/images/07-compare-live.png)
 
-Below the answers, **What to look for** lists what a good answer to this question contains — so the two can be judged line by line,
-not by feeling.
+Below the answers, the **evaluation**: the core facts of the case — the machine that ran, the lots and inspection lots with their
+decisions, good and scrap, the nonconformance reports, the lot and order the question asks for — taken from the ISA-95 work record by
+a fixed rule, and for each answer whether it states them (✓/✗). Every ID an answer names is checked too; a made-up one is shown. No AI
+grades.
 
 ### 6. Claude Desktop
 
@@ -153,7 +163,7 @@ No Claude Code? Compare also works in **Claude Desktop**:
    ![Set-up: Claude Desktop in one click](docs/images/05-setup.png)
 
 2. In Compare choose **Claude Desktop · two windows** or **Claude Desktop · one after the other**. The page guides you: copy the
-   question, ask it once with the plant context switched off and once switched on. The Explorer shows Claude's calls to its tools
+   question, ask it once with the Explorer's extension switched off in Claude Desktop and once switched on. The Explorer shows Claude's calls to its tools
    live while you ask.
 
    ![Compare in Claude Desktop, one after the other](docs/images/06-compare-claude-desktop.png)
@@ -179,9 +189,12 @@ Both sessions work with Anthropic's
 [Claude for Manufacturing](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-for-manufacturing) plugin
 (Apache-2.0, shipped unchanged — see [NOTICE](NOTICE)). The only difference between the two sides is the plant context:
 
-- **Left — raw exports:** the files each system delivers, with each system's own names (the ERP calls a machine `sgm-04`, the machine
-  itself `sgm-004`).
-- **Right — with the plant context:** the same files, plus the UNS-as-Code skill (the working rules) and the Explorer's tools: one
+- **Left — as Claude for Manufacturing reads data today:** the ERP queried by the number in the question (as its ERP connector
+  does), and the shop-floor systems — MES, quality, warehouse, historian — as an export of the case's period, as the plugin designs it
+  ("file-only is the designed path"). Each system keeps its own names (the ERP calls a machine `sgm-04`, the machine itself
+  `sgm-004`). Claude searches and joins by itself; nothing is pre-searched, nothing comes from the plant model.
+- **Right — with the UNS-as-Code context layer:** the same systems, plus an ISA-95 work record of everything tied to the case (resource
+  context, process context, Use Cases), plus the UNS-as-Code skill (the working rules) and the Explorer's tools: one
   identity per machine across all systems, the relations between order, operation, lot and inspection as ISA-95 describes them, the
   limits from recipes and machine settings — each answer with the model file it rests on, and what the model cannot answer named as
   unknown.
@@ -214,7 +227,8 @@ attribute the model lacks is reported, never invented.
 ### What the two sessions may do
 
 - read the files of their own folder;
-- run Claude for Manufacturing's own three scripts (`plant_setup.py`, `pulse_compute.py`, `render_short.py`) — nothing else;
+- run Claude for Manufacturing's own three scripts (`plant_setup.py`, `pulse_compute.py`, `render_short.py`) and the Explorer's
+  read-only `compare_columns.py` (one column against another in one file) — nothing else;
 - the right side also asks the Explorer's tools.
 
 No other program, no shell command, no writing outside their folder, no web. A refused or timed-out call is counted in the head of
