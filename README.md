@@ -4,14 +4,23 @@
 
 **See what your factory's data means — and let Claude answer questions about your plant with the right context.**
 
-The Explorer is a free desktop app (Windows, Linux) that connects to the data hub of a factory — a *Unified Namespace* on NATS,
+The Explorer is a free desktop app for Windows that connects to the data hub of a factory — a *Unified Namespace* on NATS,
 MQTT or Kafka — and shows every value live, together with what it means: which machine it belongs to, which order, which limit
 applies. It only reads; it never changes anything in the plant.
 
 **Compare** — the same question to Claude twice: once with the data as Anthropic's Claude for Manufacturing reads it today, once
 with the UNS-as-Code context layer. You see side by side what the context changes, and a fixed rule checks both answers.
 
-> Beta 0.2.23 (release candidate) — free and open source (Apache-2.0). Feedback welcome in [Issues](../../issues).
+### Try it now — no login, no account, until 31 December 2026
+
+Download the zip, unpack, start. One click on **Activate**, and you look into a running factory: injection moulding and CNC
+machines, ERP orders, quality inspections, live machine data — each value explained by the plant's model. With your own Claude account, ask Claude about it and compare
+the answers with and without the plant context. Sessions last 2 hours; the next one starts with one click. No sign-up, no
+password, no sales call. The e-mail field is optional.
+
+**[⬇ Download for Windows (zip, demo)](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc3/UNS-as-Code-Explorer-win-x64.zip)** · [all files](#download) · [step by step](#step-by-step)
+
+> **Version 0.2.23-rc3** (release candidate, 26 November 2026) — Windows 10/11. Free and open source (Apache-2.0). Feedback welcome in [Issues](../../issues).
 
 ![Compare: the same question with and without the plant context](docs/images/07-compare-live.png)
 
@@ -53,11 +62,11 @@ with the UNS-as-Code context layer. You see side by side what the context change
 
 | System | File |
 |---|---|
-| Windows 10/11, demo | [UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc1/UNS-as-Code-Explorer-win-x64.zip) — with the 2-hour demo access to our simulated plant (e-mail optional); no installation, no admin rights |
-| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc1/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user, for your own broker; no demo access |
+| Windows 10/11, demo | [UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc3/UNS-as-Code-Explorer-win-x64.zip) — with the 2-hour demo access to our simulated plant (e-mail optional); no installation, no admin rights |
+| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc3/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user, for your own broker; no demo access |
 | Linux | follows with the next version |
 
-This is a release candidate (0.2.23-rc1): Windows only. Checksums (`.sha256` next to each file) and older versions:
+This is a release candidate (0.2.23-rc3): Windows only. Checksums (`.sha256` next to each file) and older versions:
 [Releases](../../releases).
 
 ---
@@ -103,13 +112,14 @@ Click a line to see its last values, the raw message and what the model says abo
 
 ### 4. Understand the plant
 
-**Model Explorer** shows the plant as the model describes it: site, areas, lines, machines — and for each machine its attributes,
-the rules that watch it, its recipes and settings, and which systems deliver its data.
+**Model Explorer** shows the plant as the model describes it: the ISA-95 equipment hierarchy from the enterprise down to each
+machine, every class with its properties and relationships, the instances of the plant, and which system delivers which value.
+The demo plant's model has 99 classes with 1,263 properties and 524 relationships, and 128 instances.
 
 ![Model Explorer: the plant and one machine](docs/images/03-model-explorer.png)
 
-The model comes from a public repository ([osf-schemas, branch next](https://github.com/TobiasLante/osf-schemas/tree/next)); the
-Explorer opens it by itself at the first start. **Gaps** shows where the model and the live data disagree; **Follow** follows one
+The model comes from the plant's UNS-as-Code over the same broker as the data; the Explorer opens it by itself at the first
+start — no git, no extra access. **Gaps** shows where the model and the live data disagree; **Follow** follows one
 order or lot through the systems.
 
 ### 5. Ask Claude: Compare
@@ -259,7 +269,7 @@ No. It is there to try the Explorer without a broker of your own. Your own broke
 No. It is optional, used only for notices about the demo and new versions, and deleted at once when you unsubscribe.
 
 **Which systems are supported?**
-Windows 10/11 and Linux x64. Brokers: NATS (with JetStream), MQTT, Kafka (with Avro).
+Windows 10/11 (64-bit). Linux follows with the next version. Brokers: NATS (with JetStream), MQTT, Kafka (with Avro).
 
 ---
 

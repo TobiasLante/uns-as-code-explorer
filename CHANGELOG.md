@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.23-rc3 — release candidate (2026-11-26)
+- **The model comes over the broker.** The Explorer reads the plant model from UNS-as-Code over the broker it is connected to (UNSaC 0.8.1) — no git, no GitHub access. A model saved by an earlier version opens the same way.
+- **Figures over a period come whole.** A period query asks UNS-as-Code for its longest scan; two days of confirmations come complete, where they stopped after 20 seconds before.
+- **A side that ends early says why** — also when Claude Code was ended from outside; its answer is called cut.
+- The historian export of a machine that stands now runs to now.
+
 ## 0.2.23 — beta (2026-11-24)
 - **Compare, said openly: "Claude for Manufacturing (Export)" against "Claude for Manufacturing + UNS-as-Code".** The same plugin, model and question on both sides; only the way the data reaches Claude differs. The left side gets the data as Claude for Manufacturing reads it today (Anthropic's plugin: the ERP through its connector, queried by the number in the question; the shop-floor systems — MES, QMS, WMS, historian — as an export of the case's period); Claude searches and joins them itself, nothing is pre-searched and nothing comes from the plant model. The right side asks the UNS-as-Code context layer: an ISA-95 work record of everything tied to the order, lot or machine, each tie with the relation that proves it, gaps said as gaps. Under each answer: what that side was given.
 - **An evaluation below both answers.** The core facts of the case come from the work record by a fixed rule — the machine that actually ran (by any of its names), the number of lots and inspection lots with their decisions, good and scrap, and the case's nonconformance reports (NCR) — and each answer is checked for them (✓/✗), plus the IDs it names that exist nowhere. An ID written short ("NCR-AUTO-…T1947") counts; a sentence that denies or only supposes an NCR does not. No AI grades.
