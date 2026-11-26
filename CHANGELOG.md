@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.23-rc5 — release candidate (2026-11-26)
+- **Compare no longer weighs down the computer.** On the demo a comparison took up to 2.3 GB of memory and could stall the whole computer; now about 1.4 GB, and the app stays responsive while it prepares. The live view keeps only what the broker publishes (no longer what is sent to other users), each message holds only its own bytes, the records of a period go to disk while they are read, and large exports are written line by line.
+
 ## 0.2.23-rc4 — release candidate (2026-11-26)
 - **The setup has the demo too.** The Windows setup now starts like the zip: one click on Activate for the demo plant, no login until 31 December 2026, the e-mail optional.
 - **The e-mail field is always there** — also when this computer was activated before.

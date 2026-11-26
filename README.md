@@ -18,9 +18,9 @@ machines, ERP orders, quality inspections, live machine data — each value expl
 the answers with and without the plant context. Sessions last 2 hours; the next one starts with one click. No sign-up, no
 password, no sales call. The e-mail field is optional.
 
-**[⬇ Download for Windows (zip, demo)](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc4/UNS-as-Code-Explorer-win-x64.zip)** · [all files](#download) · [step by step](#step-by-step)
+**[⬇ Download for Windows (zip, demo)](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc5/UNS-as-Code-Explorer-win-x64.zip)** · [all files](#download) · [step by step](#step-by-step)
 
-> **Version 0.2.23-rc4** (release candidate, 26 November 2026) — Windows 10/11. Free and open source (Apache-2.0). Feedback welcome in [Issues](../../issues).
+> **Version 0.2.23-rc5** (release candidate, 26 November 2026) — Windows 10/11. Free and open source (Apache-2.0). Feedback welcome in [Issues](../../issues).
 
 ![Compare: the same question with and without the plant context](docs/images/07-compare-live.png)
 
@@ -62,11 +62,11 @@ password, no sales call. The e-mail field is optional.
 
 | System | File |
 |---|---|
-| Windows 10/11, demo | [UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc4/UNS-as-Code-Explorer-win-x64.zip) — with the 2-hour demo access to our simulated plant (e-mail optional); no installation, no admin rights |
-| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc4/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user (start menu, desktop); the same demo activation as the zip, and your own broker |
+| Windows 10/11, demo | [UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc5/UNS-as-Code-Explorer-win-x64.zip) — with the 2-hour demo access to our simulated plant (e-mail optional); no installation, no admin rights |
+| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc5/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user (start menu, desktop); the same demo activation as the zip, and your own broker |
 | Linux | follows with the next version |
 
-This is a release candidate (0.2.23-rc4): Windows only. Checksums (`.sha256` next to each file) and older versions:
+This is a release candidate (0.2.23-rc5): Windows only. Checksums (`.sha256` next to each file) and older versions:
 [Releases](../../releases).
 
 ---
