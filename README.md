@@ -63,7 +63,7 @@ password, no sales call. The e-mail field is optional.
 | System | File |
 |---|---|
 | Windows 10/11, demo | [UNS-as-Code-Explorer-win-x64.zip](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc4/UNS-as-Code-Explorer-win-x64.zip) — with the 2-hour demo access to our simulated plant (e-mail optional); no installation, no admin rights |
-| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc4/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user, for your own broker; no demo access |
+| Windows 10/11, setup | [UNS-as-Code-Explorer-win-x64-setup.exe](https://github.com/TobiasLante/uns-as-code-explorer/releases/download/v0.2.23-rc4/UNS-as-Code-Explorer-win-x64-setup.exe) — installs for your user (start menu, desktop); the same demo activation as the zip, and your own broker |
 | Linux | follows with the next version |
 
 This is a release candidate (0.2.23-rc4): Windows only. Checksums (`.sha256` next to each file) and older versions:
@@ -75,7 +75,7 @@ This is a release candidate (0.2.23-rc4): Windows only. Checksums (`.sha256` nex
 
 ### 1. Install
 
-**Windows:** unpack the *Zip* and start `UNS-as-Code Explorer.exe`. Nothing is installed, no administrator rights are needed.
+**Windows:** unpack the *Zip* and start `UNS-as-Code Explorer.exe` — nothing is installed. Or run the *setup*: it installs for your user (start menu, desktop), with the same demo activation. Neither needs administrator rights.
 The program is not signed yet, so Windows asks up to three times:
 
 1. **In the browser:** Edge may say the file "is not commonly downloaded". Open the downloads (**…** next to the file) → **Keep**
