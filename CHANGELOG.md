@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.23-rc4 — release candidate (2026-11-26)
+- **The setup has the demo too.** The Windows setup now starts like the zip: one click on Activate for the demo plant, no login until 31 December 2026, the e-mail optional.
+- **The e-mail field is always there** — also when this computer was activated before.
+- **A broker without a model says so plainly**: what it needs (UNS-as-Code 0.8.1 or newer) and what works instead (the demo, or your own model folder or git).
+
 ## 0.2.23-rc3 — release candidate (2026-11-26)
 - **The model comes over the broker.** The Explorer reads the plant model from UNS-as-Code over the broker it is connected to (UNSaC 0.8.1) — no git, no GitHub access. A model saved by an earlier version opens the same way.
 - **Figures over a period come whole.** A period query asks UNS-as-Code for its longest scan; two days of confirmations come complete, where they stopped after 20 seconds before.
