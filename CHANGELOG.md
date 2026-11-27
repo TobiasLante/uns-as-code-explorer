@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.24 (2026-11-27)
+- **Compare stays responsive while it prepares.** Collecting the systems' exports for a comparison no longer stalls the app: with a quarter of a million confirmations the longest pause was about a second, now under a tenth.
+- **Answers in Compare read like a report.** Both sides begin with the short answer, name the system a fact comes from (ERP, QMS …) instead of files or scripts, and say in plain words what could not be found — never an error message.
+- **The Model Explorer fits narrow windows.** At about 1000 px its head and tool row wrap instead of running past the window.
+- **Updates are found.** The app checks every 6 hours whether a newer version is out, and a release candidate hears of the final version.
+- The 8D example asks for the nonconformance reports the evaluation scores; an ID written short still counts.
+
 ## 0.2.23-rc5 — release candidate (2026-11-26)
 - **Compare no longer weighs down the computer.** On the demo a comparison took up to 2.3 GB of memory and could stall the whole computer; now about 1.4 GB, and the app stays responsive while it prepares. The live view keeps only what the broker publishes (no longer what is sent to other users), each message holds only its own bytes, the records of a period go to disk while they are read, and large exports are written line by line.
 
